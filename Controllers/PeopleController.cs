@@ -25,6 +25,12 @@ namespace crudContactListTutorial.Controllers
             return View(await _context.Person.ToListAsync());
         }
 
+        // GET: People/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
         // GET: People/Details/5
         public async Task<IActionResult> Details(int? id)
         {
