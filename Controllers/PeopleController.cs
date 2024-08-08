@@ -34,7 +34,7 @@ namespace crudContactListTutorial.Controllers
         // PoST: People/ShowSearchResults
         public async Task<IActionResult> ShowSearchResults(string SearchPhrase)
         {
-            return View();
+            return View("Index", await _context.Person.Where( j => j.Name.Contains(SearchPhrase)).ToListAsync());
         }
 
         // GET: People/Details/5
