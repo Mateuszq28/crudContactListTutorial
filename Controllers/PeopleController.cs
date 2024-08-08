@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using crudContactListTutorial.Data;
 using crudContactListTutorial.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace crudContactListTutorial.Controllers
 {
@@ -56,6 +57,7 @@ namespace crudContactListTutorial.Controllers
         }
 
         // GET: People/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -64,6 +66,7 @@ namespace crudContactListTutorial.Controllers
         // POST: People/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Surname,TelephoneNum")] Person person)
